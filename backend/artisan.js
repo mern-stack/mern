@@ -35,13 +35,13 @@ vorpal
   vorpal
   .command('make:model [model]')
   .action(function (args, callback) {
-    let str = args.model;
-      fs.appendFile('./app/database/migrations/create_'+str+'_model.js', "module.exports ={}", function (err) {
+    let feedback = args.model;
+    let str = feedback.replace(/^\w/, c => c.toUpperCase());
+      fs.appendFile('./database/migrations/create_'+str+'_model.js', "module.exports ={}", function (err) {
         if (err) throw err;
         console.log(`migration created successfully`);
       });
-      // register controller
-      fs.appendFile('./app/models/'+str+'.js', `const mongoose = require('mongoose');\nconst ${str}Object = require('../../database/migrations/create${str}_model') \n\nconst ${str} = mongoose.model('${str}', new mongoose.Schema(${str}Object));
+      fs.appendFile('./app/models/'+str+'.js', `const mongoose = require('mongoose');\nconst ${str}Object = require('../../database/migrations/create_${str}_model') \n\nconst ${str} = mongoose.model('${str}', new mongoose.Schema(${str}Object));\n\n\nmodule.exports = ${str}
       `, function (err) {
         if (err) throw err;
       });

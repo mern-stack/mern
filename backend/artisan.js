@@ -1,15 +1,14 @@
-#!/usr/bin/env node
+const vorpal = require('vorpal')().show();
 
-/**
- * Module dependencies.
- */
-var program = require('commander');
-
-
-program
-  .command('make:controller <name>')
-  .alias('m:c')
-  .description('Create a new contoller')
-  .action((name) => {
-        
+vorpal
+  .command('make [controller]')
+  .option('-b, --backwards')
+  .option('-t, --twice')
+  .action(function (args, callback) {
+    let str = args.controller;
+    if(str == 'controller'){
+      
+    }
+    this.log(str);
+    callback();
   });

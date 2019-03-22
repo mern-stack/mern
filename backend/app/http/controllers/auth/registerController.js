@@ -1,4 +1,4 @@
 
 exports.page = (req, res)=>{
-    return res.json('hello');
+    return res.json('hello register page');
 }

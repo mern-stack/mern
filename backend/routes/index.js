@@ -4,5 +4,4 @@ const controller = require('../app/providers/controllerProvider');
 
 router.get('/', controller.registerController.page);
 
-
 module.exports = router;

@@ -11,14 +11,14 @@ const csrf = require("csurf");
 const app = new express();
 // Boot Application
 app.listen(application.port);
-// Register Routes
-app.use("/", routes);
+console.log(`Server Started at PORT ${application.port}`);
 //Register Middlewares
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
-
+// Register Routes
+app.use("/", routes);
 // connect to database
 mongoose
   .connect(database.mongoUri, { useNewUrlParser: true })

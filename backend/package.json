@@ -1,0 +1,22 @@
+{
+  "name": "mern-backend",
+  "version": "0.1.0",
+  "description": "Mern Backend package",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mern",
+    "backend"
+  ],
+  "author": "Ritesh Singh",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "commander": "^2.19.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
+  }
+}

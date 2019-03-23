@@ -4,7 +4,8 @@
   "description": "Mern Backend package",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "mern",
@@ -25,6 +26,7 @@
     "juice": "^5.2.0",
     "mongoose": "^5.4.19",
     "nodemailer": "^5.1.1",
+    "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "pug": "^2.0.3",

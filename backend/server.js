@@ -7,11 +7,19 @@ const application = require("./config/application");
 const database = require("./config/database");
 const helmet = require("helmet");
 const csrf = require("csurf");
-
+const path = require("path");
 const app = new express();
 // Boot Application
 app.listen(application.port);
 console.log(`Server Started at PORT ${application.port}`);
+// view engine setup
+// view engine setup
+app.set("views", path.join(__dirname, "views")); // this is the folder where we keep our pug files
+app.set("view engine", "pug"); // we use the engine pug, mustache or EJS work great too
+
+// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+app.use(express.static(path.join(__dirname, "public")));
+
 //Register Middlewares
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());

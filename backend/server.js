@@ -6,7 +6,6 @@ const routes = require("./routes/index");
 const application = require("./config/application");
 const database = require("./config/database");
 const helmet = require("helmet");
-const csrf = require("csurf");
 const path = require("path");
 const app = new express();
 // Boot Application

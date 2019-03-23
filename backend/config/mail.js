@@ -3,7 +3,7 @@ const port = process.env.EMAIL_PORT;
 const username = process.env.EMAIL_USER;
 const password = process.env.EMAIL_PASSWORD;
 const encryption = process.env.EMAIL_ENCRYPTION;
-const from = process.env.from;
+const from = process.env.FROM;
 module.exports = {
   host: host,
   port: port,

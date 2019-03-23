@@ -3,14 +3,20 @@ const router = express.Router();
 const controller = require("../app/providers/controllerProvider");
 const passport = require("passport");
 
-// auth routes
-router.post("/register", controller.registerController.register);
-router.post("/login", controller.registerController.login);
+//auth routes
+router.post("/register", (req, res) => {
+  return controller.registerController.register(req, res);
+});
+router.post("/login", (req, res) => {
+  return controller.loginController.login(req, res);
+});
 
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
-  controller.loginController.currentUser
+  (req, res) => {
+    return controller.loginController.currentUser(req, res);
+  }
 );
 
 module.exports = router;

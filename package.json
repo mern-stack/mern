@@ -1,0 +1,27 @@
+{
+  "name": "mern",
+  "version": "0.1.0",
+  "description": "Mern Starter",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd backend && npm run start",
+    "server-install": "cd backend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mern-stack/mern.git"
+  },
+  "keywords": [
+    "mern",
+    "starter"
+  ],
+  "author": "Ritesh Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mern-stack/mern/issues"
+  },
+  "homepage": "https://github.com/mern-stack/mern#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

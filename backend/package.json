@@ -31,6 +31,7 @@
     "passport-jwt": "^4.0.0",
     "pug": "^2.0.3",
     "replace-in-file": "^3.4.4",
+    "validator": "^10.11.0",
     "vorpal": "^1.12.0"
   }
 }

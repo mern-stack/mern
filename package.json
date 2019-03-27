@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "server": "cd backend && npm run start",
-    "server-install": "cd backend && npm install"
+    "server-install": "cd backend && npm install",
+    "client": "cd frontend && npm start",
+    "client-install": "cd frontend && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "setup": "npm client-install && npm run server-install && npm run dev"
   },
   "repository": {
     "type": "git",

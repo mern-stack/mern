@@ -11,6 +11,17 @@ import {
   Button
 } from "reactstrap";
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+  onSubmit = () => {};
+  onChange = event => {
+    return this.setState({ [event.target.name]: event.target.value });
+  };
   render() {
     return (
       <Container>
@@ -19,13 +30,18 @@ class Login extends Component {
             <div className="card shadow">
               <div className="card-header">Login</div>
               <div className="card-body">
-                <Form>
+                <Form onSubmit={this.onSubmit}>
                   <FormGroup row>
                     <Label className="text-md-right" for="email" sm={4}>
                       Email
                     </Label>
                     <Col sm={8}>
-                      <Input type="email" name="email" />
+                      <Input
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.onchange}
+                      />
                     </Col>
                   </FormGroup>
 
@@ -34,7 +50,12 @@ class Login extends Component {
                       Password
                     </Label>
                     <Col sm={8}>
-                      <Input type="password" name="password" />
+                      <Input
+                        type="password"
+                        name="password"
+                        value={this.state.email}
+                        onChange={this.onchange}
+                      />
                     </Col>
                   </FormGroup>
                   <FormGroup check row>

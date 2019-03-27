@@ -10,7 +10,26 @@ import {
   Form,
   Button
 } from "reactstrap";
+import { register } from "../../actions/authActions";
+import { connect } from "react-redux";
 class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      confirm_password: "",
+      errors: {}
+    };
+  }
+  onChange = event => {
+    return this.setState({ [event.target.name]: event.target.value });
+  };
+  onSubmit = event => {
+    event.preventDefault();
+    this.props.register(this.state);
+  };
   render() {
     return (
       <Container>
@@ -19,13 +38,18 @@ class Register extends Component {
             <div className="card shadow">
               <div className="card-header">Register</div>
               <div className="card-body">
-                <Form>
+                <Form onSubmit={this.onSubmit}>
                   <FormGroup row>
                     <Label className="text-md-right" for="name" sm={4}>
                       Name
                     </Label>
                     <Col sm={8}>
-                      <Input type="name" name="name" />
+                      <Input
+                        type="name"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.onChange}
+                      />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -33,7 +57,12 @@ class Register extends Component {
                       Email
                     </Label>
                     <Col sm={8}>
-                      <Input type="email" name="email" />
+                      <Input
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                      />
                     </Col>
                   </FormGroup>
 
@@ -42,7 +71,12 @@ class Register extends Component {
                       Password
                     </Label>
                     <Col sm={8}>
-                      <Input type="password" name="password" />
+                      <Input
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                      />
                     </Col>
                   </FormGroup>
 
@@ -55,7 +89,12 @@ class Register extends Component {
                       Confirm Password
                     </Label>
                     <Col sm={8}>
-                      <Input type="confirm_password" name="confirm_password" />
+                      <Input
+                        type="confirm_password"
+                        name="confirm_password"
+                        value={this.state.confirm_password}
+                        onChange={this.onChange}
+                      />
                     </Col>
                   </FormGroup>
                   <FormGroup check row>
@@ -72,4 +111,11 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { register }
+)(Register);

@@ -17,7 +17,7 @@ const FeaturedContent = () => (
       <Card>
         <CardImg
           width="100%"
-          src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+          src="https://via.placeholder.com/256x180.png"
           alt="Card image cap"
         />
         <CardBody>
@@ -34,7 +34,7 @@ const FeaturedContent = () => (
       <Card>
         <CardImg
           width="100%"
-          src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+          src="https://via.placeholder.com/256x180.png"
           alt="Card image cap"
         />
         <CardBody>
@@ -51,7 +51,7 @@ const FeaturedContent = () => (
       <Card>
         <CardImg
           width="100%"
-          src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180"
+          src="https://via.placeholder.com/256x180.png"
           alt="Card image cap"
         />
         <CardBody>
@@ -72,7 +72,7 @@ const FeaturedContent = () => (
 class Welcome extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <header className="masthead">
           <div className="container h-100">
             <div className="row h-100 align-items-center">
@@ -88,7 +88,7 @@ class Welcome extends Component {
         <section className="py-5">
           <FeaturedContent />
         </section>
-      </div>
+      </React.Fragment>
     );
   }
 }

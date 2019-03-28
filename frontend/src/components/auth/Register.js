@@ -19,8 +19,7 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      confirm_password: "",
-      errors: {}
+      confirm_password: ""
     };
   }
   onChange = event => {
@@ -48,8 +47,10 @@ class Register extends Component {
                         type="name"
                         name="name"
                         value={this.state.name}
+                        invalid={this.props.errors.name}
                         onChange={this.onChange}
                       />
+                      <FormFeedback>{this.props.errors.name}</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -62,7 +63,9 @@ class Register extends Component {
                         name="email"
                         value={this.state.email}
                         onChange={this.onChange}
+                        invalid={this.props.errors.email}
                       />
+                      <FormFeedback>{this.props.errors.email}</FormFeedback>
                     </Col>
                   </FormGroup>
 
@@ -74,9 +77,11 @@ class Register extends Component {
                       <Input
                         type="password"
                         name="password"
+                        invalid={this.props.errors.password}
                         value={this.state.password}
                         onChange={this.onChange}
                       />
+                      <FormFeedback>{this.props.errors.password}</FormFeedback>
                     </Col>
                   </FormGroup>
 
@@ -93,8 +98,12 @@ class Register extends Component {
                         type="confirm_password"
                         name="confirm_password"
                         value={this.state.confirm_password}
+                        invalid={this.props.errors.confirm_password}
                         onChange={this.onChange}
                       />
+                      <FormFeedback>
+                        {this.props.errors.confirm_password}
+                      </FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup check row>
@@ -113,7 +122,8 @@ class Register extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 });
 export default connect(
   mapStateToProps,

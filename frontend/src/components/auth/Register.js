@@ -24,7 +24,7 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      password2: "",
+      confirm_password: "",
       errors: {}
     };
 
@@ -55,7 +55,7 @@ class Register extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      confirm_password: this.state.confirm_password
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -120,19 +120,23 @@ class Register extends Component {
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Label className="text-md-right" for="password2" sm={4}>
+                    <Label
+                      className="text-md-right"
+                      for="confirm_password"
+                      sm={4}
+                    >
                       Confirm Password
                     </Label>
                     <Col sm={8}>
                       <Input
                         type="password"
-                        name="password2"
-                        invalid={errors.password2}
-                        id="password2"
-                        value={this.state.password2}
+                        name="confirm_password"
+                        invalid={errors.confirm_password}
+                        id="confirm_password"
+                        value={this.state.confirm_password}
                         onChange={this.onChange}
                       />
-                      <FormFeedback>{errors.password2}</FormFeedback>
+                      <FormFeedback>{errors.confirm_password}</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup check row>

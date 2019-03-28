@@ -11,4 +11,18 @@
 
 # MERN Starter
 
+MERN Stands For MongoDB, ExpressJs, ReactJs and Node.
+
+This project is created to save time for bootstraping any project using MERN Stack.
+
+The structure of this project is inspired from [LARAVEL](https://laravel.com) Framework
+
 # [Documentation](https://mern-stack.github.io/docs/index.html)
+
+
+## Contributions
+
+All Contributions and suggestions are welcome.
+
+## Issues
+Please use GitHub Issue Tracker For Issues.

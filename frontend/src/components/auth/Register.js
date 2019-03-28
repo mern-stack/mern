@@ -1,17 +1,22 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+
 import {
-  Row,
+  Card,
+  CardHeader,
+  CardBody,
   Col,
-  Container,
+  Button,
+  Form,
   FormGroup,
   Label,
-  FormFeedback,
   Input,
-  Form,
-  Button
+  FormFeedback
 } from "reactstrap";
-import { register } from "../../actions/authActions";
 import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+
 class Register extends Component {
   constructor() {
     super();
@@ -19,38 +24,67 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      confirm_password: ""
+      password2: "",
+      errors: {}
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
-  onChange = event => {
-    return this.setState({ [event.target.name]: event.target.value });
-  };
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.register(this.state);
-  };
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+
+    this.props.registerUser(newUser, this.props.history);
+  }
   render() {
+    const { errors } = this.state;
     return (
-      <Container>
-        <Row>
-          <Col sm="12" md={{ size: 6, offset: 3 }} className="pt-5">
-            <div className="card shadow">
-              <div className="card-header">Register</div>
-              <div className="card-body">
-                <Form onSubmit={this.onSubmit}>
+      <div className="container h-100">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <Card>
+              <CardHeader>Register</CardHeader>
+              <CardBody>
+                {/* Form Starts Here */}
+                <Form noValidate onSubmit={this.onSubmit}>
                   <FormGroup row>
                     <Label className="text-md-right" for="name" sm={4}>
                       Name
                     </Label>
                     <Col sm={8}>
                       <Input
+                        invalid={errors.name}
                         type="name"
                         name="name"
+                        id="name"
                         value={this.state.name}
-                        invalid={this.props.errors.name}
                         onChange={this.onChange}
                       />
-                      <FormFeedback>{this.props.errors.name}</FormFeedback>
+                      <FormFeedback>{errors.name}</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -60,15 +94,15 @@ class Register extends Component {
                     <Col sm={8}>
                       <Input
                         type="email"
+                        invalid={errors.email}
                         name="email"
+                        id="email"
                         value={this.state.email}
                         onChange={this.onChange}
-                        invalid={this.props.errors.email}
                       />
-                      <FormFeedback>{this.props.errors.email}</FormFeedback>
+                      <FormFeedback>{errors.email}</FormFeedback>
                     </Col>
                   </FormGroup>
-
                   <FormGroup row>
                     <Label className="text-md-right" for="password" sm={4}>
                       Password
@@ -76,56 +110,59 @@ class Register extends Component {
                     <Col sm={8}>
                       <Input
                         type="password"
+                        invalid={errors.password}
                         name="password"
-                        invalid={this.props.errors.password}
+                        id="password"
                         value={this.state.password}
                         onChange={this.onChange}
                       />
-                      <FormFeedback>{this.props.errors.password}</FormFeedback>
+                      <FormFeedback>{errors.password}</FormFeedback>
                     </Col>
                   </FormGroup>
-
                   <FormGroup row>
-                    <Label
-                      className="text-md-right"
-                      for="confirm_password"
-                      sm={4}
-                    >
+                    <Label className="text-md-right" for="password2" sm={4}>
                       Confirm Password
                     </Label>
                     <Col sm={8}>
                       <Input
-                        type="confirm_password"
-                        name="confirm_password"
-                        value={this.state.confirm_password}
-                        invalid={this.props.errors.confirm_password}
+                        type="password"
+                        name="password2"
+                        invalid={errors.password2}
+                        id="password2"
+                        value={this.state.password2}
                         onChange={this.onChange}
                       />
-                      <FormFeedback>
-                        {this.props.errors.confirm_password}
-                      </FormFeedback>
+                      <FormFeedback>{errors.password2}</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup check row>
                     <Col sm={{ size: 10, offset: 4 }}>
-                      <Button size="md">Register</Button>
+                      <Button color="primary">Register</Button>
                     </Col>
                   </FormGroup>
                 </Form>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+
+                {/* Form Ends Here */}
+              </CardBody>
+            </Card>
+          </div>
+        </div>
+      </div>
     );
   }
 }
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
+
 export default connect(
   mapStateToProps,
-  { register }
-)(Register);
+  { registerUser }
+)(withRouter(Register));

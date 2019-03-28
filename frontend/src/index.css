@@ -6,9 +6,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc !important;
+  color: #636b6f !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.white {
+  color: #fff;
+}
+bg-white {
+  background-color: #fff !important;
+}
+.navbar-mern {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.footer-mern {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.04);
+}
+.title-text {
+  font-size: 36px;
 }

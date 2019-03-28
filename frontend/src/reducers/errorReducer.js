@@ -1,12 +1,12 @@
-import { DISPLAY_ERRORS } from "../actions/types";
+import { GET_ERRORS } from "../actions/types";
 
 const initialState = {};
 
-export default (state = initialState, action) => {
+export default function(state = initialState, action) {
   switch (action.type) {
-    case DISPLAY_ERRORS:
+    case GET_ERRORS:
       return action.payload;
     default:
       return state;
   }
-};
+}

@@ -22,7 +22,7 @@ exports.register = (req, res) => {
       users.password = hash;
       users
         .save()
-        .then(user => res.json(user))
+        .then(user => res.json("User Created Successfully"))
         .catch(err => console.log(err));
     });
   });

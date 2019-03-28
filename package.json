@@ -8,8 +8,8 @@
     "server-install": "cd backend && npm install",
     "client": "cd frontend && npm start",
     "client-install": "cd frontend && npm install",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "setup": "npm client-install && npm run server-install && npm run dev"
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "setup": "npm run  client-install && npm run server-install && npm run dev"
   },
   "repository": {
     "type": "git",

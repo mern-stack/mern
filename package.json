@@ -9,7 +9,7 @@
     "client": "cd frontend && npm start",
     "client-install": "cd frontend && npm install",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "setup": "npm run  client-install && npm run server-install && npm run dev"
+    "setup": "npm install && npm run client-install && npm run server-install && npm run dev"
   },
   "repository": {
     "type": "git",

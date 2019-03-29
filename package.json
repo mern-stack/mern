@@ -6,6 +6,7 @@
   "scripts": {
     "server": "cd backend && npm run start",
     "server-install": "cd backend && npm install",
+    "start":"cd frontend && npm run start",	
     "client": "cd frontend && npm start",
     "client-install": "cd frontend && npm install",
     "dev": "concurrently \"npm run server\" \"npm run start\"",

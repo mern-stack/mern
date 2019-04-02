@@ -2,8 +2,7 @@
 [![Version](https://img.shields.io/badge/Version-1.0-<COLOR>.svg)](https://shields.io/)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://github.com/mern-stack/mern/releases/)
-
-[](https://img.shields.io/github/contributors/mern-stack/mern.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/mern-stack/mern.svg)
 
 # MERN Starter
 

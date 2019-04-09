@@ -7,6 +7,11 @@ module.exports = {
     type: String,
     required: true
   },
+  role: {
+    type: String,
+    required: false,
+    default: "user"
+  },
   password: {
     type: String,
     required: true

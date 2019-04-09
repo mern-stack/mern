@@ -2,13 +2,23 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { toast } from "react-toastify";
 //register
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/register", userData)
-    .then(res => history.push("/login"))
+    .then(res =>
+      toast.success(
+        "User Registered Successfully, now login again to continue.",
+        {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: false,
+          hideProgressBar: true
+        }
+      )
+    )
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

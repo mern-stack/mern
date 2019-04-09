@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-
+import { ToastContainer, toast } from "react-toastify";
 import store from "./store";
 import "./App.css";
 import Header from "./layouts/Header";
@@ -42,6 +42,7 @@ class App extends Component {
         <Router>
           <div>
             <Header />
+            <ToastContainer />
             <Route exact path="/" component={Welcome} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />

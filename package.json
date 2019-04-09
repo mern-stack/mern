@@ -9,6 +9,7 @@
     "start":"cd frontend && npm run start",	
     "client": "cd frontend && npm start",
     "client-install": "cd frontend && npm install",
+    "upgrade" : "npm run server-install && npm rin client-install",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
     "setup": "npm install && npm run client-install && npm run server-install && npm run dev"
   },

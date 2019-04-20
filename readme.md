@@ -17,11 +17,11 @@ The structure of this project is inspired from [LARAVEL](https://laravel.com) Fr
 
 ## Contributions
 
-All Contributions and suggestions are welcome.
+All Contributions and suggestions are welcome. Please read [Contribution Guidelines](https://github.com/mern-stack/mern/blob/master/CONTRIBUTING.md)
 
 ## Issues
 Please use GitHub Issue Tracker For Issues.
 
 ## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The project is an open-source software licensed under the [MIT license](https://github.com/mern-stack/mern/blob/master/LICENSE).
